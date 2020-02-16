@@ -1,9 +1,63 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto+Mono&display=swap');
-
-body {
-    font-family: 'Montserrat', sans-serif;
+.color1 {
+    background: linear-gradient(#c57f5a, #faefc4);
 }
 
-code {
-    font-family: 'Roboto Mono', monospace;
+.pattern1 {
+    background: url("https://www.xytime.xyz/patterns/1.png");
+    background-blend-mode: soft-light;
 }
+
+.color2 {
+    background: linear-gradient(#6d92b6, #c3fac5);
+}
+
+.pattern2 {
+    background: url("https://www.xytime.xyz/patterns/2.png");
+    background-blend-mode: soft-light;
+}
+
+.color3 {
+    background: linear-gradient(#6362a7, #b1dbea);
+}
+
+.pattern3 {
+    background: url("https://www.xytime.xyz/patterns/3.png");
+    background-blend-mode: soft-light;
+}
+
+.color4 {
+    background: linear-gradient(#a9513d, #fdd1d1);
+}
+
+.pattern4 {
+    background: url("https://www.xytime.xyz/patterns/4.png");
+    background-blend-mode: soft-light;
+}
+
+.color5 {
+    background: linear-gradient(#425685, #cabcd9);
+}
+
+.pattern5 {
+    background: url("https://www.xytime.xyz/patterns/5.png");
+    background-blend-mode: soft-light;
+}
+
+.color6 {
+    background: linear-gradient(#453843, #a5979b);
+}
+
+.pattern6 {
+    background: url("https://www.xytime.xyz/patterns/6.png");
+    background-blend-mode: soft-light;
+}
+
+.color7 {
+    background: linear-gradient(#373841, #849297);
+}
+
+.pattern7 {
+    background: url("https://www.xytime.xyz/patterns/7.png");
+    background-blend-mode: soft-light;
+}
+
