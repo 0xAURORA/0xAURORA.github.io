@@ -1,0 +1,8 @@
+{
+  "include": [
+    "https://www.toontownrewritten.com/api/mirrors"
+  ],
+  "mirrors": [
+    "http://s3.amazonaws.com/download.toontownrewritten.com/patches/"
+  ]
+}
