@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Toontown Rewritten on Linux with Flatpak</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.xytime.xyz/site.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="https://www.xytime.xyz/">Index</a>
+              </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Flatpaks
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="https://www.xytime.xyz/flatpaks/ttr/index.html">Toontown Rewritten</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Guides
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="https://www.xytime.xyz/guides/ttr-on-cros.html">TTR on ChromeOS</a>
+                </div>
+              </li>
+          </div>
+        </div>
+      </nav>
+      <div class="color5">
+        <div class="pattern5">
+    <div class="container">
+        <h1>Running Toontown Rewritten on Chrome OS</h1>
+        <p>Thanks to significant improvements to Crostini (a.k.a Linux Beta), it is now easier than ever to run Toontown Rewritten on a Chromebook! Here I'll discuss using Crostini and Flatpak to run the game, but you should check out <a href="https://github.com/dnschneid/crouton">crouton</a> and <a href="https://galliumos.org/">GalliumOS</a> if that doesn't do the trick for you (I may update this page with more info on those later!). Note that none of these methods work on non-x86_64 chromebooks. Until emulation improves on ARM platforms, you're most likely out of luck if you've got an ARM chromebook.</p>
+
+        <h3>Using Crostini</h3>
+        <p>To install Toontown Rewritten using Crostini, you'll first want to install Linux (Beta). You can install Linux (Beta) by opening up your Chromebook's system settings, finding Linux (Beta) on the side, and clicking "Install"</p>
+        <img src="https://i.imgur.com/ULaKM32.png"/>
+        <p>If the installation fails, reboot your device and try again. Otherwise, open up the linux terminal by clicking the little dot icon in the bottom left corner to open up the app launcher and launching the Terminal app under the Linux section.</p>
+        <p>Once you've got the terminal open, we'll next need to make sure everything is going to work. First you should check that your process type is compatible with Toontown Rewritten. Type the following command into the terminal as is followed by a press of the enter key.</p>
+        <code>uname -m</code>
+        <p>You should get some output a little bit like this.</p>
+        <img src="https://i.imgur.com/5Yls63q.png"/>
+        <p>If you don't see "x86_64," then, unfortunately, your device will not work with the game. Otherwise, you should next check to make sure GPU acceleration is enabled. Install mesa-utils using the following command.</p>
+        <code>sudo apt update && sudo apt install -y mesa-utils</code>
+        <p>After you've got mesa-utils successfully installed, run the following command to verify GPU acceleration is enabled.</p>
+        <code>glxinfo -B</code>
+        <img src="https://i.imgur.com/lO9JSsg.png"/>
+        <p>After you've run glxinfo, you should see some output similar to the above. The important bit is the "direct rendering: Yes" (outlined above). If it says no, then you will need to enable GPU acceleration. You can do so by opening a chrome browser, going to chrome://flags, searching for "Crostini GPU Support" and enabling it. Once you've done that, restart your device for good measure and try running glxinfo -B again.</p>
+        <p>After you've successfully verified that hardware acceleration is enabled, we're almost ready to install the game. Before doing that, we'll need to get Flatpak using the following command.</p>
+        <code>sudo apt install -y flatpak</code>
+        <p>After Flatpak is installed, install the game like so:</p>
+        <code>flatpak --user install https://www.xytime.xyz/flatpaks/ttr/toontown.flatpakref</code>
+        <p>Since you're installing a flatpak for the first time, you'll probably be prompted to add flathub as a remote. Make sure you say yes ('y') to this or the flatpak won't install. I was not in my screenshot because I've used flatpak before.</p>
+        <img src="https://i.imgur.com/XCHis8v.png"/>
+        <p>Press 'y' again to confirm the changes and wait a bit while it downloads Toontown Rewritten and the libraries required to run it. You'll probably have a few more things to download than me as I've already used flatpak before.</p>
+        <p>After installation is complete, you should see Toontown Rewritten appear in the Linux section of your App Launcher (next to the terminal app you launched earlier). If you don't, try restarting as sometimes it's needed to get it to show up. If you still don't see it, you can manually run the flatpak using the following command.</p>
+        <code>flatpak run xyz.xytime.Toontown</code>
+        <p>Once starting the App, you should see the Toontown Rewritten launcher appear and you'll be able to login as normal. It might not work perfectly as Chromebooks are a somewhat diverse group of devices and Crostini is still in beta (hence, Linux Beta). If this doesn't work for you or you experience issues, try Crouton or GalliumOS (as linked above).</p>
+      </div>
+  </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</div>
+</body>
+</html>
