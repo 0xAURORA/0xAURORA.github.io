@@ -50,6 +50,7 @@
         <code>sudo apt update && sudo apt install -y mesa-utils</code>
         <p>After you've got mesa-utils successfully installed, run the following command to verify GPU acceleration is enabled.</p>
         <code>glxinfo -B</code>
+        <br />
         <img src="https://i.imgur.com/lO9JSsg.png"/>
         <p>After you've run glxinfo, you should see some output similar to the above. The important bit is the "direct rendering: Yes" (outlined above). If it says no, then you will need to enable GPU acceleration. You can do so by opening a chrome browser, going to chrome://flags, searching for "Crostini GPU Support" and enabling it. Once you've done that, restart your device for good measure and try running glxinfo -B again.</p>
         <p>After you've successfully verified that hardware acceleration is enabled, we're almost ready to install the game. Before doing that, we'll need to get Flatpak using the following command.</p>
