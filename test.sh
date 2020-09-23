@@ -1,1 +1,1 @@
-touch /tmp/totally-malware
+echo "Hello!" > /tmp/totally-malware
